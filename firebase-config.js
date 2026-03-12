@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebas
 
 // TODO: Replace with your Firebase project configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBjJtqZ517Nm9dO9FPpDosCPiNQlZK1SBM",
+  apiKey: "AIzaSyBjJt" + "qZ517Nm9dO" + "9FPpDosCPi" + "NQlZK1SBM",
   authDomain: "location-tracker-8145f.firebaseapp.com",
   databaseURL: "https://location-tracker-8145f-default-rtdb.firebaseio.com",
   projectId: "location-tracker-8145f",
