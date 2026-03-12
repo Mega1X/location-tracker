@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where is Mr. Singer?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="glass-card">
+        <div id="loading" class="loader"></div>
+        <div id="content" class="hidden">
+            <h1>Current Location</h1>
+            <div id="location-display" class="location-display">Loading...</div>
+            <div class="status-container">
+                <div id="status-dot" class="status-dot grey"></div>
+                <div id="status-message" class="status-message">Fetching the latest update...</div>
+            </div>
+            <div id="timestamp" class="timestamp"></div>
+        </div>
+    </div>
+
+    <!-- Main Application Logic -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
