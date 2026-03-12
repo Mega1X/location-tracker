@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #6366f1;
+  --secondary: #ec4899;
+  --bg-dark: #0f172a;
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  font-family: 'Outfit', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Animated Background Blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.6;
+  z-index: 0;
+  animation: float 12s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--primary);
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  width: 500px;
+  height: 500px;
+  background: var(--secondary);
+  bottom: -150px;
+  right: -100px;
+  animation-delay: -6s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 40px) scale(1.1); }
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+  padding: 48px;
+  width: 90%;
+  max-width: 600px; /* Increased max-width for better desktop look */
+  text-align: center;
+  z-index: 10;
+  position: relative;
+  transition: transform 0.3s ease;
+  
+  /* Flex properties to ensure content uses space well */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Add align-items center to fix blank spots */
+  min-height: 400px; 
+}
+
+/* Typography */
+h1 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.location-display {
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.status-dot {
+  width: clamp(1.2rem, 2.5vw, 1.5rem);
+  height: clamp(1.2rem, 2.5vw, 1.5rem);
+  border-radius: 50%;
+  box-shadow: 0 0 16px currentColor; /* Enhanced Glowing effect */
+}
+
+.status-dot.green {
+  background-color: #4ade80;
+  color: #4ade80;
+}
+
+.status-dot.yellow {
+  background-color: #facc15;
+  color: #facc15;
+}
+
+.status-dot.red {
+  background-color: #f87171;
+  color: #f87171;
+}
+
+.status-dot.grey {
+  background-color: #94a3b8;
+  color: transparent;
+  box-shadow: none;
+}
+
+.status-message {
+  font-size: clamp(0.9rem, 2vw, 1.1rem); /* Slightly smaller than before */
+  font-weight: 300;
+  color: var(--text-muted);
+  margin: 0; /* Remove bottom margin since container handles it */
+}
+
+.timestamp {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 24px;
+}
+
+/* Form Elements */
+.input-group {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: var(--primary);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+}
+
+select.color-select {
+  width: 100%;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+  appearance: none; /* remove default arrow */
+  cursor: pointer;
+}
+
+select.color-select option {
+  background: var(--bg-dark);
+  color: white;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Loading Spinner */
+.loader {
+  border: 4px solid rgba(255,255,255,0.1);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Layout Utilities for Admin */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 480px) {
+  .glass-card {
+    padding: 32px 24px;
+    width: 95%;
+    min-height: 350px;
+    border-radius: 20px;
+  }
+  
+  .blob-1 {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -50px;
+  }
+  
+  .blob-2 {
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    right: -50px;
+  }
+  
+  input[type="text"], .btn {
+    padding: 14px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+    .glass-card {
+        padding: 64px;
+        width: 90%;
+        max-width: 1600px; 
+        min-height: 500px;
+    }
+
+    .location-display {
+        font-size: clamp(4rem, 8vw, 8rem);
+    }
+
+    .status-message {
+        font-size: 1.5rem;
+    }
+}

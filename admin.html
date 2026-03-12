@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Location - Admin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="glass-card">
+        
+        <!-- Login Section -->
+        <div id="login-section">
+            <h1>Admin Access</h1>
+            <p class="status-message">Sign in with Google to update your location.</p>
+            <button id="login-btn" class="btn">Sign In with Google</button>
+        </div>
+
+        <!-- Update Section (Hidden by default) -->
+        <div id="update-section" class="hidden">
+            <div class="admin-header">
+                <h1 style="margin: 0;">Admin Dashboard</h1>
+                <button id="logout-btn" class="logout-btn">Log Out</button>
+            </div>
+
+            <!-- Current Status Display -->
+            <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--glass-border);">
+                <h1 style="font-size: 0.9rem;">Live Preview</h1>
+                <div id="location-display" class="location-display" style="font-size: clamp(2rem, 4vw, 3rem);">Loading...</div>
+                <div class="status-container" style="margin-bottom: 0;">
+                    <div id="status-dot" class="status-dot grey"></div>
+                    <div id="status-message" class="status-message">Fetching...</div>
+                </div>
+            </div>
+            
+            <h1 style="font-size: 0.9rem; margin-bottom: 16px;">Update Status</h1>
+            <div class="input-group">
+                <label for="location-select">Where are you?</label>
+                <select id="location-select" class="color-select">
+                    <option value="" disabled selected>Select a location...</option>
+                    <option value="MS/US Library">MS/US Library</option>
+                    <option value="MDL Library Lower School">MDL Library Lower School</option>
+                    <option value="Reception Middle School">Reception Middle School</option>
+                    <option value="Other">Other...</option>
+                </select>
+                <input type="text" id="location-other" class="hidden" placeholder="Type custom location..." style="margin-top: 12px;">
+            </div>
+            
+            <div class="input-group">
+                <label for="message-input">Status Message (Optional)</label>
+                <input type="text" id="message-input" placeholder="e.g., Available for help, In a meeting...">
+            </div>
+
+            <div class="input-group">
+                <label for="color-select">Availability Status</label>
+                <select id="color-select" class="color-select">
+                    <option value="green">🟢 Available</option>
+                    <option value="yellow">🟡 Out of Office / Away</option>
+                    <option value="red">🔴 Busy / In a Meeting</option>
+                    <option value="grey">⚪ Unknown</option>
+                </select>
+            </div>
+
+            <button id="update-btn" class="btn">Update Location</button>
+            
+            <div id="feedback-msg" class="timestamp" style="color: #69f0ae; margin-top: 12px; height: 20px;"></div>
+        </div>
+
+    </div>
+
+    <!-- Admin Logic -->
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
