@@ -279,7 +279,6 @@ function App() {
               className={`pin-terminal ${pinError ? 'pin-error' : ''}`}
               value={pin}
               onChange={handlePinInput}
-              placeholder="● ● ● ●"
             />
             {pinError && <p className="pin-error-msg">Incorrect PIN</p>}
             <button className="pin-cancel-btn" onClick={() => { setIsPinMode(false); setPin(''); setPinError(false); }}>
